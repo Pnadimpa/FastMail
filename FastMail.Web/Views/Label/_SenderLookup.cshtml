@@ -1,0 +1,62 @@
+﻿<div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasTitle">Select Sender</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div id="offcanvas-body" class="offcanvas-body">
+    <div class="mb-3">
+        <label class="form-label">Sender Department</label>
+        <select id="sel-dept" class="form-control" asp-items="@(new SelectList(ViewBag.Departments, "Value", "Text"))">
+            <option value="">- Select department -</option>
+        </select>
+        <label class="form-label mt-3">Sender Address</label>
+        <select id="sel-address" class="form-control">
+        </select>
+    </div>
+    <div id="routing" style="display: none;">
+        <label class="form-label">Routing Details</label>
+        <div class="card" style="background-color: #FFF3CD;">
+            <div class="card-body" id="routing-details">
+            </div>
+        </div>
+    </div>
+    <div id="senders"></div>
+</div>
+
+<script>
+    $(function () {
+        $('#sel-dept').on('change', function () {
+            $.ajax({
+                url: '@Url.Action("GetAddresses", "Label")',
+                data: { id: $(this).val() },
+                type: 'GET',
+                success: function (data) {
+                    $('#sel-address').empty();
+                    $.each(data, function (i, item) {
+                        $("#sel-address").append($('<option></option>').attr("value", item.value).text(item.text));
+                    });
+                },
+                error: this.ajaxFailure
+            });
+        });
+
+        $('#sel-address').on('change', function () {
+            $.ajax({
+                url: '@Url.Action("GetSenders", "Label")',
+                data: { id: $(this).val() },
+                type: 'GET',
+                success: function (data) {
+                    $('#routing-details').html(data.routing);
+                    $('#routing').show();
+
+                    $('#senders').html(data.html);
+                },
+                error: this.ajaxFailure
+            });
+        });
+    });
+
+    function showSender() {
+        $('#sender-info').show();
+    }
+</script>
+

@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "FastMail::Mail Tracking System";
+}
+
+<div class="mb-4">
+    <h5 class="display-6">Locations</h5>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Hours</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mail Stop 1</td>
+                <td>1234 Main St.</td>
+                <td>Downey</td>
+                <td>M-F 9AM~5PM</td>
+                <td>
+                    <button class="btn btn-outline-secondary btn-sm">Print Barcode</button>
+                    <a href="@Url.Action("EditLocation", new {id = "123456" })" class="btn btn-outline-success btn-sm">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

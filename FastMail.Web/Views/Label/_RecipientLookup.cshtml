@@ -1,0 +1,93 @@
+﻿@model List<string>
+<div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasTitle">Select Recipient</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+</div>
+<div id="offcanvas-body" class="offcanvas-body">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="dept-tab" data-bs-toggle="tab" data-bs-target="#dept-tab-pane" type="button" role="tab" aria-controls="dept-tab-pane" aria-selected="true">By Department</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="most-tab" data-bs-toggle="tab" data-bs-target="#most-tab-pane" type="button" role="tab" aria-controls="most-tab-pane" aria-selected="false">Most Used</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active pt-3" id="dept-tab-pane" role="tabpanel" aria-labelledby="dept-tab" tabindex="0">
+            <div class="mb-3">
+                <label for="department" class="form-label">Recipient Department</label>
+                <select id="sel-dept" class="form-control" asp-items="@(new SelectList(ViewBag.Departments, "Value", "Text"))">
+                    <option value="">- Select department -</option>
+                </select>
+                <label for="address" class="form-label mt-3">Recipient Address</label>
+                <select id="sel-address" class="form-control" ">
+                </select>
+            </div>
+            <div id="routing" style="display: none;">
+                <label class="form-label">Routing Details</label>
+                <div class="card" style="background-color: #FFF3CD;">
+                    <div class="card-body" id="routing-details">
+                    </div>
+                </div>
+            </div>
+            <div id="recipients"></div>
+        </div>
+        <div class="tab-pane fade pt-3" id="most-tab-pane" role="tabpanel" aria-labelledby="most-tab" tabindex="1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                    <tr onclick="showRecipient()" data-bs-dismiss="offcanvas">
+                        <td>@item</td>
+                        <td></td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('#sel-dept').on('change', function () {
+            $.ajax({
+                url: '@Url.Action("GetAddresses", "Label")',
+                data: { id: $(this).val() },
+                type: 'GET',
+                success: function (data) {
+                    $('#sel-address').empty();
+                    $.each(data, function (i, item) {
+                        $("#sel-address").append($('<option></option>').attr("value", item.value).text(item.text));
+                    });
+                },
+                error: this.ajaxFailure
+            });
+        });
+
+        $('#sel-address').on('change', function () {
+            $.ajax({
+                url: '@Url.Action("GetRecipients", "Label")',
+                data: { id: $(this).val() },
+                type: 'GET',
+                success: function (data) {
+                    $('#routing-details').html(data.routing);
+                    $('#routing').show();
+
+                    $('#recipients').html(data.html);
+                },
+                error: this.ajaxFailure
+            });
+        });
+    });
+
+    function showRecipient() {
+        $('#recipient-info').show();
+    }
+</script>

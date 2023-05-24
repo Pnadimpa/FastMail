@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "FastMail::Mail Tracking System";
+}
+
+<div class="mb-4">
+    <h5 class="display-6">Label Lookup</h5>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tracking No</th>
+            <th>Date Received</th>
+            <th>Date Delivered</th>
+            <th>Receiver Dept</th>
+            <th>Receiver Address</th>
+            <th>Receiver Program</th>
+            <th>Receiver Room</th>
+            <th>Sender Dept</th>
+            <th>Sender Address</th>
+            <th>Sender Program</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><a href="@Url.Action("Details", new{ Id = "123456" })">123456</a></td>
+            <td>2/1/2023 15:34</td>
+            <td>2/1/2023</td>
+            <td>IS</td>
+            <td>1234 Main St. Downey Facility Main Building, Downey</td>
+            <td>Some program</td>
+            <td>Room 974</td>
+            <td>PW</td>
+            <td>777 Wall St. Public Works Headquarter, Alameda</td>
+            <td>Another program</td>
+        </tr>
+    </tbody>
+</table>

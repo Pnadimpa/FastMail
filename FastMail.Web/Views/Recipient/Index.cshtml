@@ -1,0 +1,115 @@
+﻿@model List<FastMail.Core.Domain.Recipient>
+
+@*<form class="">
+<div class="form-group">
+    <input type="text" class="form-control" placeholder="Search">
+    <button type="submit" class=" btn btn-danger">Submit</button>
+</div>*@
+<div class="text-Left">
+    <h1 class="display-4 mb-5">Recipients</h1>
+</div>
+
+<div class="mt-4" id="search-panel">
+    <form method="post">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <input type="search" name="recipientId" class="form-control" placeholder="Enter recipient ID">
+            </div>
+            <div class="col-md-4">
+                <input type="search" name="recipientName" class="form-control" id="inputEmail3" placeholder="Enter recipient name">
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" id="button-search">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="text-end">
+    <a href="@Url.Action("Create")" class="btn btn-outline-info">Add Recipient</a>
+</div>
+
+
+<table class="table table-striped" id="Recipients-table">
+    <thead>
+        <tr>
+            <th>Recipient Id</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>ContactName</th>
+            <th>Address</th>
+            @* <th>AddressAbr</th>*@
+            <th>City</th>
+            @*<th>State</th>*@
+            <th>Zip</th>
+            <th>RoomNumber</th>
+            @*  <th>Email</th>*@
+            @* <th>PhoneNumber</th>*@
+            <th>RouteNumber</th>
+            <th>MailStopNumber</th>
+            @*   <th>DaysOfService</th>
+            <th>SameDayService</th>
+            <th>TimeRestrictions</th>*@
+            @* <th>DepartmentAbr</th>
+            <th>ProgramName</th>
+            <th>Division</th>
+            <th>DaysAbr</th>
+            <th>BillingCodeNumber</th>
+            <th>Site</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.RecipientId</td>
+                <td>@item.RecipientName</td>
+                <td>@item.RecipientDepartment</td>
+                <td>@item.RecipientContactName</td>
+                <td>@item.RecipientAddress</td>
+                @*  <td>@item.RecipientAddressAbr</td>*@
+                <td>@item.RecipientCity</td>
+                @*  <td>@item.RecipientState</td>*@
+                <td>@item.RecipientZip</td>
+                <td>@item.RecipientRoomNumber</td>
+                @* <td>@item.RecipientEmail</td>*@
+                @* <td>@item.RecipientPhoneNumber</td>*@
+                <td>@item.RecipientRouteNumber</td>
+                <td>@item.RecipientMailStopNumber</td>
+                @* <td>@item.RecipientDaysOfService</td>
+            <td>@item.RecipientSameDayService</td>
+            <td>@item.RecipientTimeRestrictions</td>*@
+                @*<td>@item.RecipientDepartmentAbr</td>
+            <td>@item.RecipientProgramName</td>
+            <td>@item.RecipientDivision</td>
+            <td>@item.RecipientDaysAbr</td>
+            <td>@item.RecipientBillingCodeNumber</td>
+            <td>@item.RecipientSite</td>*@
+                <td><a href="@Url.Action("Edit", new{ id = item.Id })" class="btn btn-outline-success btn-sm">Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*</form>
+</div>*@
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#Recipients-table').on('draw.dt', function () {
+                $('.spinner-overlay').hide();
+            });
+
+            $('#Recipients-table').DataTable();
+        });
+    </script>
+
+
+}
+
+
+
+
+

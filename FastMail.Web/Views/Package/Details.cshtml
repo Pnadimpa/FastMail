@@ -1,0 +1,104 @@
+﻿@{
+    ViewData["Title"] = "FastMail::Mail Tracking System";
+}
+
+<div class="mb-4">
+    <h5 class="display-6">Package Details</h5>
+</div>
+
+<style>
+    .col-form-label {
+        padding-left: 20px;
+        padding-right: 5px;
+        font-weight: 200;
+    }
+</style>
+
+<div class="row">
+    <div class="col-4">
+        <img src="~/images/status1.jpg" style="max-width: 370px;" />
+    </div>
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header">
+                Details
+            </div>
+            <div class="card-body">
+                <h5>Receiver</h5>
+                <div class="row">
+                    <label class="col-sm-2 col-form-label">Department</label>
+                    <div class="col-sm-4 pt-2">
+                        INTERNAL SERVICES (IS)
+                    </div>
+                    <label class="col-sm-2 col-form-label">Program</label>
+                    <div class="col-sm-4 pt-2">
+                        Some program
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-4 pt-2">
+                        1234 Main St., Downey
+                    </div>
+                    <label class="col-sm-2 col-form-label">Room</label>
+                    <div class="col-sm-4 pt-2">
+                        Room 1234
+                    </div>
+                </div>
+                <h5 class="mt-4">Sender</h5>
+                <div class="row">
+                    <label class="col-sm-2 col-form-label">Department</label>
+                    <div class="col-sm-4 pt-2">
+                        PUBLIC WORKS (PW)
+                    </div>
+                    <label class="col-sm-2 col-form-label">Program</label>
+                    <div class="col-sm-4 pt-2">
+                        Other program
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 col-form-label">Address</label>
+                    <div class="col-sm-4 pt-2 pt-2">
+                        1234 Main St., Alameda
+                    </div>
+                </div>
+                <h5 class="mt-4">Package</h5>
+                <div class="row">
+                    <label class="col-sm-2 col-form-label">Status</label>
+                    <div class="col-sm-4 pt-2">
+                        Delivered<img src="~/images/signature1.png" class="signature-image ml-3 pl-3" style="max-height: 30px;" data-container="body"
+                                      data-placement="top" data-img="@Url.Content("~/images/signature1.png")" />
+                    </div>
+                    <label class="col-sm-2 col-form-label">Tracking No</label>
+                    <div class="col-sm-4 pt-2 pt-2">
+                        123456
+                    </div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2 col-form-label">Date Received</label>
+                    <div class="col-sm-4 pt-2">
+                        2/1/2023 15:34 PM
+                    </div>
+                    <label class="col-sm-2 col-form-label">Mail Type</label>
+                    <div class="col-sm-4 pt-2">
+                        <span class="badge rounded-pill bg-danger">Package</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $('.signature-image').popover({
+                html: true,
+                trigger: 'hover',
+                content: function () {
+                    return '<img src="' + $(this).data('img') + '" class="img-fluid" />';
+                }
+            });
+        })
+    </script>
+}

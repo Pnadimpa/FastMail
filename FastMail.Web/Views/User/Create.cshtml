@@ -1,0 +1,71 @@
+﻿@model FastMail.Core.Domain.User
+@{
+    ViewData["Title"] = "FastMail::Mail Tracking System";
+}
+<div class="text-Left">
+    <h1 class="display-4 mb-5">Create User</h1>
+</div>
+<style>
+    tr {
+        cursor: pointer;
+    }
+</style>
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Message"]
+    </div>
+}
+<div class="container">
+    <form method="post">
+        <div class="mb-2 row">
+            <label for="Users" class="col-sm-2 col-form-label fw-bold">User Id</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="UserId">
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Users" class="col-sm-2 col-form-label fw-bold">User Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="UserName">
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Email" class="col-sm-2 col-form-label fw-bold">User Email</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="UserEmail">
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="User" class="col-sm-2 col-form-label fw-bold">User Phone</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control"  asp-for="UserPhone">
+            </div>
+        </div>
+        @*<div class="mb-2 row gy-1">
+            <label for="User" class="col-sm-2 col-form-label fw-bold">New Password</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="inputAddress" placeholder="New Password">
+            </div>
+        </div>*@
+        @*<div class="mb-2 row">
+            <label for="User" class="col-sm-2 col-form-label fw-bold">Confirm Password</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="inputAddress" placeholder="Confirm Password">
+            </div>
+        </div>*@
+        <div class="row my-4">
+            <div class="col-sm-1">
+                <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+            </div>
+            @* <div class="col-sm-2">
+            <button type="submit" name="submit" value="Change Password" class="btn btn-success">Change Password</button>
+            </div>*@
+            <div class="col-sm-1">
+                <button type="submit" name="Cancel" value="cancel" class="btn btn-outline-secondary">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+   

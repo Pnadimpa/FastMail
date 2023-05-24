@@ -1,0 +1,51 @@
+﻿@model List<FastMail.Core.Domain.User>
+
+<div class="text-Left">
+    <h1 class="display-4 mb-5">Users</h1>
+</div>
+
+<div class="mt-4" id="search-panel">
+    <form method="post">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <input type="search" name="userId" class="form-control" placeholder="Enter User ID">
+            </div>
+            <div class="col-md-4">
+                <input type="search" name="userName" class="form-control" id="inputEmail3" placeholder="Enter User name">
+            </div>
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-primary" id="button-search">Search</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="text-end">
+    <a href="@Url.Action("Create")" class="btn btn-outline-info">Add User</a>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>UserID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th> </th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                <td>@u.UserId</td>
+                <td>@u.UserName</td>
+                <td>@u.UserEmail</td>
+                <td>@u.UserPhone</td>
+                @*<td><a href="@Url.Action("EditUser", new{ id = u.UserId })" class="btn btn-outline-success btn-sm">Edit</a></td>
+            <td><a href="@Url.Action("DeleteUser", new{ id = u.UserId })" class="btn btn-outline-success btn-sm">Delete</a></td>*@
+                <td><a href="@Url.Action("Edit", new { id = u.Id })">Edit</a></td>
+                <td><a href="@Url.Action("Delete", new { id = u.Id })">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

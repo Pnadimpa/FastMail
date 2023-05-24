@@ -1,0 +1,170 @@
+﻿@model FastMail.Core.Domain.SpecialPackage
+@{
+    ViewData["Title"] = "FastMail::Mail Tracking System";
+}
+<div class="text-Left">
+    <h1 class="display-4 mb-5">Special Package</h1>
+</div>
+<style>
+    tr {
+        cursor: pointer;
+    }
+</style>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["Message"]
+    </div>
+}
+<div class="container">
+    <form method="post">
+        <div class="mb-2 row">
+            <label for="date" class="col-sm-1 col-form-label fw-bold">Date</label>
+            <div class="col-sm-2">
+                <input type="text" class="form-control" readonly asp-for="DateCreatedUtc" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="sender" class="col-sm-1 col-form-label fw-bold" style=background-color: #F8D7DA;">Mail Type</label>
+            <div class="col-sm-4">
+                <select class="form-control" asp-for="MailType" asp-items="@(new SelectList(ViewBag.MailTypes, "Value", "Text"))">
+                    <option value="">- Select mail type -</option>
+                </select>
+            </div>
+        </div><br />
+        <h15 class="text-left fs-2 fw-bold">Recipient Information</h15>
+        <div class="mb-2 row">
+            <label for="Recipient" class="col-sm-2 col-form-label fw-bold">Recipient ID</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="RecipientId">
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Recipient" class="col-sm-2 col-form-label fw-bold">Recipient Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="RecipientName">
+                <span asp-validation-for="RecipientName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Recipient" class="col-sm-2 col-form-label fw-bold">Recipient Email</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="RecipientEmail">
+                <span asp-validation-for="RecipientEmail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Recipient" class="col-sm-2 col-form-label fw-bold">Recipient Address</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="RecipientAddress">
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Email" class="col-sm-2 col-form-label fw-bold">Recipient City</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="RecipientCity">
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Email" class="col-sm-2 col-form-label fw-bold">Recipient State</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="RecipientState">
+            </div><br />
+        </div>
+        <div class="mb-2 row">
+            <label for="Email" class="col-sm-2 col-form-label fw-bold">Recipient Zip</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="RecipientZip">
+            </div><br />
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1" class="fw-bold">Remarks</label>
+            <input type="text" class="form-control" asp-for="Remarks">
+        </div><br />
+        <h15 class="text-left fs-2 fw-bold">Sender Information</h15>
+        @*<h5 class="col-sm-2 col-form-label fw-bold" style="color:#daa520">Sender Information</h5><br />*@
+        <div class="mb-2 row">
+            <label for="Recipient" class="col-sm-2 col-form-label fw-bold">Sender ID</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="SenderId">
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Sender" class="col-sm-2 col-form-label fw-bold">Sender Name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="SenderName">
+                <span asp-validation-for="SenderName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Email" class="col-sm-2 col-form-label fw-bold">Sender Email</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="SenderEmail">
+            </div><br />
+        </div>
+        <div class="mb-2 row">
+            <label for="Sender" class="col-sm-2 col-form-label fw-bold">Sender Address</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="SenderAddress">
+                <span asp-validation-for="SenderAddress" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Email" class="col-sm-2 col-form-label fw-bold">Sender City</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="SenderCity">
+            </div>
+        </div>
+        <div class="mb-2 row">
+            <label for="Email" class="col-sm-2 col-form-label fw-bold">Sender State</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="SenderState">
+            </div><br />
+        </div>
+        <div class="mb-2 row">
+            <label for="Email" class="col-sm-2 col-form-label fw-bold">SenderZip</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" asp-for="SenderZip">
+            </div><br />
+        </div>
+        <div class="mb-1 row">
+            <label for="Packages" class="col-sm-2 col-form-label fw-bold">Number of Packages</label>
+            <div class="col-sm-1">
+                <input type="text" class="form-control" id="inputAddress">
+            </div>
+        </div>
+        <div class="row my-4">
+            <div class="col-sm-1">
+                <button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <div class="col-sm-1">
+                <button type="submit" name="submit" value="cancel" class="btn btn-outline-secondary">Cancel</button>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+</div>
+@section Scripts {
+    <script>
+        $(function () {
+            $("a.lookup").on('click', function (e) {
+                $.ajax({
+                    url: '@Url.Action("GetLookupList", "Label")',
+                    data: { id: $(this).attr('id') },
+                    type: 'GET',
+                    success: function (data) {
+                        $('.offcanvas').html(data.html);
+                    },
+                    error: this.ajaxFailure
+                });
+            });
+
+            $('#btn-submit').on('click', function () {
+                $('.spinner-overlay').show();
+            });
+        });
+
+    </script>
+    }

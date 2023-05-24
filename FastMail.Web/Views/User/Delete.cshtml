@@ -1,0 +1,44 @@
+﻿@model FastMail.Core.Domain.User
+
+@{
+    ViewData["Title"] = "FastMail::Mail Tracking System";
+
+}
+@*<style>
+         .padmaja {
+                color: red;
+    }
+</style>*@
+
+<div class="mb-4">
+    <h5 class="display-6">Delete Label</h5>
+    <h6 class="text-danger">Are you sure to delete this label?</h6>
+
+</div>
+<div class="container">
+    <div class="mb-2 row">
+        <label class="col-sm-1 col-form-label fw-bold">UserID</label>
+        <div class="col-sm-2">
+            <label>@Model.UserId</label>
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label class="col-sm-1 col-form-label fw-bold">UserName</label>
+        <div class="col-sm-4">
+            <label>@Model.UserName</label>
+        </div>
+    </div>
+    <div>
+        <form method="post">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="@Url.Action("Index")" class="mx-3">Cancel</a>
+        </form>
+    </div>
+
+
+
+
+
+
+

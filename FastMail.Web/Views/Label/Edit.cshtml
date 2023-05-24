@@ -1,0 +1,140 @@
+﻿@{
+    ViewData["Title"] = "FastMail::Mail Tracking System";
+}
+
+<div class="mb-4">
+    <h5 class="display-6">Edit Label</h5>
+</div>
+
+<div class="container">
+    <div class="mb-2 row">
+        <label for="date" class="col-sm-1 col-form-label fw-bold">Date</label>
+        <div class="col-sm-2">
+            <input type="date" class="form-control" id="date" value="@DateTime.Today.ToString("yyyy-MM-dd")">
+        </div>
+    </div>
+    <div class="mb-2 row">
+        <label for="sender" class="col-sm-1 col-form-label fw-bold">Mail Type</label>
+        <div class="col-sm-4">
+            <select class="form-control" asp-items="@(new SelectList(ViewBag.MailTypes, "Value", "Text"))">
+                <option value="">- Select mail type -</option>
+            </select>
+        </div>
+    </div>
+    <div class="my-3">
+        <div class="card">
+            <div class="card-header">
+                <div class="float-end">
+                    <a class="lookup" id="recipient"
+                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        Select recipient
+                    </a>
+                </div>
+                <span class="fw-bold">Recipient</span>
+            </div>
+            <div class="card-body px-4">
+                <div class="mb-2">
+                    <div id="recipient-info">
+                        <div class="mb-2 row">
+                            <label for="name" class="col-sm-1 col-form-label">Name</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="recipient-name" class="form-control" />
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <label for="email" class="col-sm-1 col-form-label">Email</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="recipient-email" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <label for="email" class="col-sm-1 col-form-label">Remarks</label>
+                            <div class="col-sm-11">
+                                <input type="text" id="recipient-remarks" class="form-control" placeholder="Up to 100 characters" />
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <label for="email" class="col-sm-1 col-form-label">Route Details</label>
+                            <div class="col-sm-11">
+                                <textarea id="recipient-route-details" class="form-control" rows="3" cols="100"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-3">
+        <div class="card">
+            <div class="card-header">
+                <div class="float-end">
+                    <a class="lookup" id="sender"
+                       data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                        Select sender
+                    </a>
+                </div>
+                <span class="fw-bold">Sender</span>
+            </div>
+            <div class="card-body px-4">
+                <div class="mb-2">
+                    <div id="sender-info">
+                        <div class="mb-2 row">
+                            <label for="name" class="col-sm-1 col-form-label">Name</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="sender-name" class="form-control" />
+                            </div>
+                            <div class="col-sm-1"></div>
+                            <label for="email" class="col-sm-1 col-form-label">Email</label>
+                            <div class="col-sm-4">
+                                <input type="text" id="sender-email" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="mb-2 row">
+                            <div class="mb-2 row">
+                                <label for="email" class="col-sm-1 col-form-label">Route Details</label>
+                                <div class="col-sm-11">
+                                    <textarea id="recipient-route-details" class="form-control" rows="3" cols="100"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row my-4">
+        <div class="col-sm-1">
+            <button class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-1">
+            <button class="btn btn-outline-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(function () {
+            $("a.lookup").on('click', function (e) {
+                $.ajax({
+                    url: '@Url.Action("GetLookupList", "Label")',
+                    data: { id: $(this).attr('id') },
+                    type: 'GET',
+                    success: function (data) {
+                        $('.offcanvas').html(data.html);
+                    },
+                    error: this.ajaxFailure
+                });
+            });
+
+            $('#btn-submit').on('click', function () {
+                $('.spinner-overlay').show();
+            });
+        });
+
+    </script>
+    }

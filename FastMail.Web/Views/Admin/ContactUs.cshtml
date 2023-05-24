@@ -1,0 +1,185 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+    .card {
+        width: 18rem;
+      background-color: #E5E5E5;
+        border-radius: 20px;
+    }
+
+        .card h1 {
+            margin-top: 17px;
+        }
+
+    .fa-1x {
+        font-size: 1.5em;
+    }
+</style>
+
+<div class="text-Left">
+    <h1 class="display-4 mb-5">Contact Us</h1>
+</div>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-4 mt-3">
+            <div class="card mb-4 shadow-sm w-100">
+                <div class="card-body">
+                    <div style="border: 4px solid #ef6923; border-radius: 50%; background-color: #efd5c6; height: 90px; width: 90px; margin: 0 auto 20px;">
+                        <h1><i class="fas fa-phone fa-1"></i></h1>
+                    </div>
+                    <h3>Phone</h3>
+                    <p class="card-text text-black-50">(323)267-3988</p><br>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-4 mt-3">
+            <div class="card mb-4 shadow-sm w-100">
+                <div class="card-body">
+                    <div style="border: 4px solid #ef6923; border-radius: 50%; background-color: #efd5c6; height: 90px; width: 90px; margin: 0 auto 20px;">
+                        <h1><i class="fas fa-home fa-1"></i></h1>
+                    </div>
+                    <h3>Location</h3>
+                    <p card="text text-black-50"> ISD Mail Service Headquaters</p>
+                    <p>1102 N. Eastern Ave</p>
+                    <p>Los Angeles, CA. 90063</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-4 mt-3">
+            <div class="card mb-4 shadow-sm w-100">
+                <div class="card-body">
+                    <div style="border: 4px solid #ef6923; border-radius: 50%; background-color: #efd5c6; height: 90px; width: 90px; margin: 0 auto 20px;">
+                    <h1><i class="far fa-envelope fa-1"></i></h1>
+                    </div>
+                    <h3>E-mail</h3>
+                    <a href="mailto:ISDMailSupport@isd.lacounty.gov?subject=FastMail%20Questions" style="font-size:0.85rem;">ISDMailSupport@isd.lacounty.gov</a><br>
+                     @*  style="font-size:0.85rem;">ISDMailSupport@isd.lacounty.gov</a><br>*@
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mb-4 mt-3">
+            <div class="card mb-4 shadow-sm w-100">
+                <div class="card-body alert-secondary">
+                    <div style="border: 4px solid #ef6923; border-radius: 50%; background-color: #efd5c6; height: 90px; width: 90px; margin: 0 auto 20px;">
+                        <h1><i class="far fa-clock fa-1"></i></h1>
+                    </div>
+                    <h3>Hours of Operation</h3>
+                    <p card="text text-black-50">7am to 5pm</p><br>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="row">
+        <div class="col">
+            <a href="@Url.Action("Create", "Label")" class="text-decoration-none">
+                <div class="card p-4 mt-5">
+                    <div class="card-body text-black">
+                    <div style="border: 4px solid #3E54AC; border-radius: 50%; background-color: #efd5c6; height: 90px; width: 90px; margin: 0 auto 20px;">
+                        <p class="fa fa-file fa-3x p-3"></p>
+                        </div>
+                        <h5>Create Label</h5>
+                        <p class="card-text text-black-50">Let's send mails!  You can create mailing labels here.</p>
+                    </div>
+                </div>
+            </a>
+        </div>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*
+
+
+@{
+    ViewData["Title"] = "FastMail::Mail Tracking System";
+}
+
+<div class="mb-4">
+    <h5 class="display-6">Contact Us</h5>
+</div>
+
+<h6>
+    Please contact us at (323) 267-3988 or email <a href="mailto:ISDMailSupport@isd.lacounty.gov">ISDMailSupport@isd.lacounty.gov</a> Monday to Friday 7:00 AM to 5:00 PM to assist you.
+</h6>
+
+<div class="card mt-5">
+    <div class="card-header">Department Abbreviations</div>
+    <div class="card-body">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Abbr.</th>
+                    <th>Department Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>AA</td><td>AFFIRMATIVE ACTION</td></tr>
+                <tr><td>AD</td><td>ALTERNATE PUBLIC DEFENDER</td></tr>
+                <tr><td>AN</td><td>ANIMAL CONTROL</td></tr>
+                <tr><td>AO</td><td>CHIEF EXECUTIVE OFFICER</td></tr>
+                <tr><td>AR</td><td>MUSEUM OF ART</td></tr>
+                <tr><td>AS</td><td>ASSESSOR</td></tr>
+                <tr><td>AU</td><td>AUDITOR-CONTROLLER</td></tr>
+                <tr><td>AW</td><td>AGRICULTURAL COMMISSIONER/WEIGHT & MEASURES</td></tr>
+                <tr><td>BH</td><td>BEACHES AND HARBORS</td></tr>
+                <tr><td>BS</td><td>BOARD OF SUPERVISORS</td></tr>
+                <tr><td>CA</td><td>CONSUMER AFFAIRS</td></tr>
+                <tr><td>CC</td><td>COUNTY COUNSEL</td></tr>
+                <tr><td>CD</td><td>CHILD SUPPORT SERVICES</td></tr>
+                <tr><td>CH</td><td>CHILDREN & FAMILY SERVICES</td></tr>
+                <tr><td>CS</td><td>COMMUNITY & SENIOR SVCS</td></tr>
+                <tr><td>DA</td><td>DISTRICT ATTORNEY</td></tr>
+                <tr><td>FR</td><td>LA COUNTY FIRE DEPARTMENT</td></tr>
+                <tr><td>GJ</td><td>GRAND JURY</td></tr>
+                <tr><td>HG</td><td>LAC+USC MEDICAL CENTER</td></tr>
+                <tr><td>HH</td><td>HARBOR-UCLA MEDICAL CENTER</td></tr>
+                <tr><td>HJ</td><td>JUVENILE COURT HEALTH SERVICES</td></tr>
+                <tr><td>HK</td><td>MARTIN LUTHER KING HOSPITAL</td></tr>
+                <tr><td>HM</td><td>HUMAN RESOURCES</td></tr>
+                <tr><td>HO</td><td>OLIVE VIEW HOSPITAL</td></tr>
+                <tr><td>HP</td><td>HEALTH PLAN ADMINISTRATION</td></tr>
+                <tr><td>HR</td><td>RANCHO LOS AMIGOS HOSPITAL</td></tr>
+                <tr><td>HS</td><td>HEALTH SERVICES ADMINISTRATION</td></tr>
+                <tr><td>IO</td><td>CHIEF INFORMATION OFFICE</td></tr>
+                <tr><td>IS</td><td>INTERNAL SERVICES</td></tr>
+                <tr><td>ME</td><td>CHIEF MEDICAL EXAMINER CORONER</td></tr>
+                <tr><td>MH</td><td>MENTAL HEALTH</td></tr>
+                <tr><td>MV</td><td>MILITARY AND VETERANS AFFAIRS</td></tr>
+                <tr><td>NH</td><td>MUSEUM OF NATURAL HISTORY</td></tr>
+                <tr><td>NL</td><td>RETIREMENT DIVISION</td></tr>
+                <tr><td>OM</td><td>OFFICE OF OMBUDSMAN</td></tr>
+                <tr><td>PB</td><td>PROBATION</td></tr>
+                <tr><td>PD</td><td>PUBLIC DEFENDER</td></tr>
+                <tr><td>PG</td><td>SUBSTANCE ABUSE & CONTRACTS</td></tr>
+                <tr><td>PH</td><td>PUBLIC HEALTH</td></tr>
+                <tr><td>PK</td><td>PARKS AND RECREATION</td></tr>
+                <tr><td>PL</td><td>PUBLIC LIBRARY</td></tr>
+                <tr><td>PP</td><td>AIDS PROGRAM DEPARTMENT</td></tr>
+                <tr><td>PR</td><td>ANTELOPE VALLEY REHAB CENTER</td></tr>
+                <tr><td>PS</td><td>CHILDREN'S MEDICAL SERVICES</td></tr>
+                <tr><td>PW</td><td>PUBLIC WORKS</td></tr>
+                <tr><td>RP</td><td>REGIONAL PLANNING</td></tr>
+                <tr><td>RR</td><td>REGISTRAR - RECORDER</td></tr>
+                <tr><td>SC</td><td>SUPERIOR COURT</td></tr>
+                <tr><td>SH</td><td>SHERIFF</td></tr>
+                <tr><td>SS</td><td>PUBLIC SOCIAL SERVICES</td></tr>
+                <tr><td>TT</td><td>TREASURER AND TAX COLLECTOR</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+*@

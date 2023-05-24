@@ -1,0 +1,56 @@
+﻿@model FastMail.Core.Domain.User
+@{
+    ViewData["Title"] = "FastMail::Mail Tracking System";
+}
+
+
+
+
+
+<div class="mb-4">
+    <h5 class="display-6 fw-bold" style="color: #003366;">User</h5>
+</div>
+
+
+
+
+<div class="container">
+    <table class="table table-striped" id="Users-table">
+        <thead>
+            <tr class="bg-warning">
+                <th>User ID</th>
+                <th>User Name</th>
+                <th>User Email</th>
+                <th>User Phone</th>
+                @* <th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.UserId</td>
+                <td>@Model.UserName</td>
+                <td>@Model.UserEmail</td>
+                <td>@Model.UserPhone</td>
+                @*<td><a href="@Url.Action("Edit", new{ id = u.UserId })" class="btn btn-outline-success btn-sm">Edit</a></td>*@
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#Users-table').on('draw.dt', function () {
+                $('.spinner-overlay').hide();
+            });
+
+
+
+
+            $('#Users-table').DataTable();
+        });
+    </script>
+}
+
+
+

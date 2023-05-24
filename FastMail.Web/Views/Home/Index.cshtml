@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<style>
+        .card {
+                width: 18rem;
+                  background-color: #E5E5E5;
+                  border-radius: 20px;
+
+    }
+</style>
+<div class="text-center">
+    <h1 class="display-4 mb-5">Welcome</h1>
+    <div class="row">
+        <div class="col">
+            <a href="@Url.Action("Create", "Label")" class="text-decoration-none">
+                <div class="card p-4 mt-5">
+                    <div class="card-body text-black">
+                        <div style="border: 4px solid #3E54AC; border-radius: 50%; background-color: #4681c326; height: 90px; width: 90px; margin: 0 auto 20px;">
+                        <p class="fa fa-file fa-3x p-3"></p>
+                        </div>
+                        <h5>Create Label</h5>
+                        <p class="card-text text-black-50">Let's send mails!  You can create mailing labels here.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a href="@Url.Action("Index", "Label")" class="text-decoration-none">
+                <div class="card p-4 mt-5">
+                    <div class="card-body text-black">
+                        <div style="border: 4px solid #ef6923;; border-radius: 50%; background-color: #efd5c6; height: 90px; width: 90px; margin: 0 auto 20px;">
+                        <p class="fa fa-list fa-3x p-3"></p>
+                       </div>
+                        <h5>Label Lookup</h5>
+                        <p class="card-text text-black-50">View the list of labels to search and make changes.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a href="@Url.Action("Index", "Package")" class="text-decoration-none">
+                <div class="card p-4 mt-5">
+                    <div class="card-body text-black">
+                        <div style="border: 4px solid #609966; border-radius: 50%; background-color: #20b68226; height: 90px; width: 90px; margin: 0 auto 20px;">
+                        <p class="fa fa-box fa-3x p-3"></p>
+                        </div>
+                        <h5>Packages</h5>
+                        <p class="card-text text-black-50">Where is my package?  Find out using our tracking tool.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col">
+            <a href="@Url.Action("ContactUs", "Admin")" class="text-decoration-none">
+                <div class="card p-4 mt-5">
+                    <div class="card-body text-black">
+                        <div style="border: 4px solid #f7c04a; border-radius: 50%; background-color: #f7e9cf; height: 90px; width: 90px; margin: 0 auto 20px;">
+                        <p class="fa fa-question fa-3x p-3"></p>
+                        </div>
+                        <h5>Contact Us</h5>
+                        <p class="card-text text-black-50">We'd love to hear your questions and concerns.</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
